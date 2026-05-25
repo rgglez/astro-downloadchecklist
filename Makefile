@@ -1,4 +1,4 @@
-.PHONY: tags patch publish
+.PHONY: tags latest-tag patch publish
 
 CURRENT_VERSION := $(shell node -p "require('./package.json').version")
 PARTS          := $(subst ., ,$(CURRENT_VERSION))
@@ -10,6 +10,9 @@ NEXT_VERSION   := $(MAJOR).$(MINOR).$(NEXT_PATCH)
 
 tags:
 	@git tag --sort=-v:refname
+
+latest-tag:
+	@git tag --sort=-v:refname | head -1
 
 patch:
 	@echo "$(CURRENT_VERSION) → $(NEXT_VERSION)"
@@ -26,6 +29,7 @@ patch:
 	@echo "Tagged v$(NEXT_VERSION) and pushed."
 
 publish:
-	@echo "Publishing v$(CURRENT_VERSION) to npm..."
-	@npm publish --access public
-	@echo "Published $(CURRENT_VERSION)."
+	@VERSION=$$(node -p "require('./package.json').version"); \
+	echo "Publishing v$$VERSION to npm..."; \
+	npm publish --access public; \
+	echo "Published $$VERSION."

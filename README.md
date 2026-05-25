@@ -66,6 +66,7 @@ download button. Clicking it will download the checklist in CSV format.
 | Target | Description |
 |--------|-------------|
 | `make tags` | List git tags sorted by semver (descending) |
+| `make latest-tag` | Show the latest git tag |
 | `make patch` | Bump PATCH version in `package.json`, commit, tag, and push |
 | `make publish` | Publish current version to npm |
 
