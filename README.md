@@ -14,7 +14,7 @@ component as a CSV file.
 One use case is a blog post (Markdown or MDX), where you can download a
 checklist directly from the page.
 
-![Example screen](example_screen.png)
+<img src="example_screen.png" width="400" alt="Example screen">
 
 ## Installation
 
