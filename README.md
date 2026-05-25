@@ -8,8 +8,8 @@
 ![GitHub stars](https://img.shields.io/github/stars/rgglez/astro-downloadchecklist?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/rgglez/astro-downloadchecklist?style=social)
 
-**astro-downloadchecklist** allows users to download a checklist wrapped with this
-component as a CSV file.
+**astro-downloadchecklist** allows users to download a checklist wrapped with
+this component as a CSV file.
 
 One use case is a blog post (Markdown or MDX), where you can download a
 checklist directly from the page.
@@ -30,7 +30,7 @@ Import the component:
 import DownloadChecklist from "@/components/DownloadChecklist.astro";
 ```
 
-Wrap a checklist with the component.
+Wrap a checklist with the component in your MD/MDX files:
 
 ```mdx
 <DownloadChecklist filename="initial-setup-checklist.csv" label="Download">
@@ -76,5 +76,6 @@ Typical release flow: `make patch publish`.
 
 Copyright (C) 2026 Rodolfo González González.
 
-Licensed under the [Apache v2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
-Read the [LICENSE](LICENSE) file.
+Licensed under the
+[Apache v2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). Read the
+[LICENSE](LICENSE) file.
