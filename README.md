@@ -26,9 +26,11 @@ npm install @rgglez/astro-downloadchecklist
 
 Import the component:
 
-```mdx
+```javascript
 import DownloadChecklist from "@/components/DownloadChecklist.astro";
 ```
+
+### Usage in `.mdx` files
 
 Wrap a checklist with the component in your MD/MDX files:
 
@@ -53,6 +55,34 @@ Wrap a checklist with the component in your MD/MDX files:
 
 Now, when you view the rendered MDX or Markdown in the browser, you'll see a
 download button. Clicking it will download the checklist in CSV format.
+
+### Usage in `.astro` files
+
+The component also works in `.astro` pages, layouts, and other Astro components,
+as long as the slot contains a `<ul>` or `<ol>` with `<li>` items:
+
+```astro
+<DownloadChecklist filename="my-checklist.csv" label="Download CSV">
+  <ul>
+    <li>First task</li>
+    <li>Second task</li>
+    <li>Third task</li>
+  </ul>
+</DownloadChecklist>
+```
+
+### Requirements
+
+- The slot must contain a list (`<ul>` or `<ol>`) with `<li>` items. The CSV is
+  built by reading the rendered DOM, not the source Markdown.
+- Works in `.astro`, `.md`, `.mdx`, layouts, pages, and other Astro components.
+
+### Limitations
+
+- Does not work inside React/Vue/Svelte/Solid islands — `.astro` components
+  cannot be embedded in framework components.
+- The CSV-building script runs once on page load. Lists injected into the DOM
+  later by client-side JavaScript will not be picked up.
 
 ### Properties
 
